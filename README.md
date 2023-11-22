@@ -2,6 +2,9 @@
 DUE L02 PYTHON LABOR
 Mészáros Tamás
 
+Mészáros Tamás
+VLEROQ
+Beadandó: Fájlkezelő
 
 Az alkalmazásod a következő fő részekből áll:
 
