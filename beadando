@@ -1,0 +1,78 @@
+import tkinter as tk
+from tkinter import messagebox
+from file_operations import Fajlkezelo
+
+class FajlGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Fájlkezelés")
+        self.root.configure(bg="darkgrey")
+
+        self.file_handler = Fajlkezelo("data.txt")
+
+        self.label = tk.Label(root, text="Adatok kezelése fájlban", font=("Times New Roman", 20, "bold"))
+        self.label.pack(pady=60)
+
+        self.data_entry = tk.Entry(root, width=80)
+        self.data_entry.pack(pady=30)
+
+        self.write_button = tk.Button(root, text="Adatok írása a fájlba",
+                                      command=self.falj_irasa, bg="white", font=("Times New Roman", 12))
+        self.write_button.pack(pady=20)
+
+        self.read_button = tk.Button(root, text="Adatok olvasása a fájlból",
+                                     command=self.falj_olvasasa, bg="grey", font=("Times New Roman", 12))
+        self.read_button.pack(pady=20)
+
+        self.delete_button = tk.Button(root, text="Adatok törlése a fáljból",
+                                       command=self.falj_torlese, bg="red", font=("Times New Roman", 12))
+        self.delete_button.pack(pady=20)
+
+    def falj_irasa(self):
+        data = self.data_entry.get()
+        if data:
+            self.file_handler.falj_irasa(data)
+            messagebox.showinfo("Siker", "Adatok sikeresen hozzáadva a fájlba.")
+            self.data_entry.delete(0, tk.END)
+        else:
+            messagebox.showwarning("Üres adat", "Nem lehet üresen hagyni a mezőt!")
+
+    def falj_olvasasa(self):
+        data = self.file_handler.falj_olvasasa()
+        messagebox.showinfo("Fájl tartalma", f"A fájl tartalma:\n{data}")
+
+    def falj_torlese(self):
+        result = self.file_handler.falj_torlese()
+        messagebox.showinfo("Fájl törlése", result)
+
+class Fajlkezelo:
+    def __init__(self, file_name):
+        self.file_name = file_name
+
+    def falj_irasa(self, data):
+        with open(self.file_name, 'w') as file:
+            file.write(data)
+
+    def falj_olvasasa(self):
+        try:
+            with open(self.file_name, 'r') as file:
+                return file.read()
+        except FileNotFoundError:
+            return "Nincs adat a fájlban!"
+
+    def falj_torlese(self):
+        try:
+            import os
+            os.remove(self.file_name)
+            return "Adatok sikeresen törölve!"
+        except FileNotFoundError:
+            return "Nem találhatóak adatok a fájlban!"
+
+from gui import FajlGUI
+import tkinter as tk
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = FajlGUI(root)
+    root.mainloop()
