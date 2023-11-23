@@ -6,38 +6,26 @@ Mészáros Tamás
 VLEROQ
 Beadandó: Fájlkezelő
 
-Az alkalmazásod a következő fő részekből áll:
+Az alkalmazás fő részei:
 
-1. `FajlGUI` osztály: A grafikus felhasználói felület (GUI) osztály, amely az alkalmazás ablakát és vezérlőelemeit kezeli.
+1. FajlGUI a grafikus felhasználói felület, amely az alkalmazás ablakát és vezérlőelemeit kezeli.
 
-2. `Fajlkezelo` osztály: Egy osztály, amely felelős a fájlkezelési műveletek végrehajtásáért (írás, olvasás, törlés).
+2. Fajlkezelo egy osztály, amely felelős a fájlkezelési műveletek végrehajtásáért (írás, olvasás, törlés).
 
-3. A `main` rész, ahol létrehozod a Tkinter ablakot és az alkalmazás fő objektumát.
+3. A main rész, ahol létrehozod a Tkinter ablakot és az alkalmazás fő objektumát.
 
-Az általam felhasznált függvények a következők:
+Az általam felhasznált függvények:
 
-- `tkinter`: A Tkinter modul, amely lehetővé teszi a grafikus felhasználói felület létrehozását.
+- A Tkinter modul, amely lehetővé teszi a grafikus felhasználói felület létrehozását.
 
-- `messagebox`: Tkinter modul része, amely lehetővé teszi egyszerű üzenetablakok megjelenítését.
+- A messagebox tkinter modul része, amely lehetővé teszi egyszerű üzenetablakok megjelenítését.
 
-- `file_operations.Fajlkezelo`: Egy másik modul, amely az alkalmazás fájlkezelési funkcióit tartalmazza.
+- file_operations.Fajlkezelo egy másik modul, amely az alkalmazás fájlkezelési funkcióit tartalmazza.
 
-A `Fajlkezelo` osztály a következő függvényeket tartalmazza:
+- __init__a fájl nevét kapja meg paraméterként.
 
-- `__init__`: Az osztály inicializáló függvénye, ahol a fájl nevét kapja meg paraméterként.
+- falj_irasa az adatok írásáért felelős függvény.
 
-- `falj_irasa`: Az adatok írásáért felelős függvény.
+- falj_olvasasa az adatok olvasásáért felelős függvény.
 
-- `falj_olvasasa`: Az adatok olvasásáért felelős függvény.
-
-- `falj_torlese`: Az adatok törléséért felelős függvény.
-
-A `FajlGUI` osztály pedig a következő függvényeket tartalmazza:
-
-- `__init__`: Az osztály inicializáló függvénye, ahol beállítod az ablakot és vezérlőelemeit.
-
-- `falj_irasa`: Az adatok írásáért felelős függvény.
-
-- `falj_olvasasa`: Az adatok olvasásáért felelős függvény.
-
-- `falj_torlese`: Az adatok törléséért felelős függvény.
+- falj_torlese az adatok törléséért felelős függvény.
