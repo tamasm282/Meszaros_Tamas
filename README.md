@@ -14,7 +14,7 @@ Az alkalmazás fő részei:
 
 3. A main rész, ahol létrehozod a Tkinter ablakot és az alkalmazás fő objektumát.
 
-Az általam felhasznált függvények:
+Az általam felhasználtak:
 
 - A Tkinter modul, amely lehetővé teszi a grafikus felhasználói felület létrehozását.
 
